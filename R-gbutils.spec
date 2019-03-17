@@ -4,20 +4,26 @@
 #
 Name     : R-gbutils
 Version  : 0.4.0
-Release  : 6
+Release  : 7
 URL      : https://cran.r-project.org/src/contrib/gbutils_0.4-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gbutils_0.4-0.tar.gz
 Summary  : Simulation of Real and Complex Numbers and Small Programming
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-Rdpack
+Requires: R-bibtex
+Requires: R-gbRd
 BuildRequires : R-Rdpack
+BuildRequires : R-bibtex
+BuildRequires : R-gbRd
 BuildRequires : buildreq-R
 
 %description
-magnitude and arguments. Optionally, the magnitudes and/or arguments may
-       be fixed in almost arbitrary ways. Plot density and distribution
-       functions with automatic selection of suitable regions.  Small programming
+Simulate real and complex numbers from distributions of their magnitude and
+arguments. Optionally, the magnitudes and/or arguments may be fixed in almost arbitrary
+ways. Plot density and distribution functions with automatic selection of suitable regions.
+Small programming utilities: check if an object is identical to NA, count positional
+arguments in a call, set intersection of more than two sets, check if an argument is unnamed,
+compute the graph of S4 classes in packages.
 
 %prep
 %setup -q -c -n gbutils
@@ -27,11 +33,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538791200
+export SOURCE_DATE_EPOCH=1552791006
 
 %install
+export SOURCE_DATE_EPOCH=1552791006
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1538791200
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -66,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library gbutils|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  gbutils || :
 
 
 %files
