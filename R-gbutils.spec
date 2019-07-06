@@ -4,15 +4,18 @@
 #
 Name     : R-gbutils
 Version  : 0.4.0
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/gbutils_0.4-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gbutils_0.4-0.tar.gz
 Summary  : Simulation of Real and Complex Numbers and Small Programming
 Group    : Development/Tools
 License  : GPL-2.0+
+Requires: R-Rdpack
+Requires: R-stringi
 BuildRequires : R-Rdpack
 BuildRequires : R-bibtex
 BuildRequires : R-gbRd
+BuildRequires : R-stringi
 BuildRequires : buildreq-R
 
 %description
@@ -30,13 +33,13 @@ compute the graph of S4 classes in packages.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552835976
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562445546
 
 %install
-export SOURCE_DATE_EPOCH=1552835976
+export SOURCE_DATE_EPOCH=1562445546
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -65,12 +68,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  gbutils || :
+R CMD check --no-manual --no-examples --no-codoc gbutils || :
 
 
 %files
