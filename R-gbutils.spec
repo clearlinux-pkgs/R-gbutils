@@ -4,19 +4,19 @@
 #
 Name     : R-gbutils
 Version  : 0.4.0
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/gbutils_0.4-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gbutils_0.4-0.tar.gz
 Summary  : Simulation of Real and Complex Numbers and Small Programming
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-Rdpack
-Requires: R-stringi
 BuildRequires : R-Rdpack
 BuildRequires : R-bibtex
 BuildRequires : R-gbRd
 BuildRequires : R-stringi
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 Simulate real and complex numbers from distributions of their magnitude and
@@ -34,10 +34,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562445546
+export SOURCE_DATE_EPOCH=1571835604
 
 %install
-export SOURCE_DATE_EPOCH=1562445546
+export SOURCE_DATE_EPOCH=1571835604
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
