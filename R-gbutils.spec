@@ -4,7 +4,7 @@
 #
 Name     : R-gbutils
 Version  : 0.5
-Release  : 40
+Release  : 41
 URL      : https://cran.r-project.org/src/contrib/gbutils_0.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gbutils_0.5.tar.gz
 Summary  : Utilities for Simulation, Plots, Quantile Functions and
